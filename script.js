@@ -182,20 +182,41 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       if (isValid) {
-        // Show success message
+        // Show submitting state
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
         submitBtn.disabled = true;
 
-        // Simulate form submission
+        // Build WhatsApp message with form data
+        var message = document.getElementById('message');
+        var whatsappMessage = '--- NEW APPLICATION ---\n\n';
+        whatsappMessage += '👤 *Name:* ' + fullName.value.trim() + '\n';
+        whatsappMessage += '📞 *Phone:* ' + phone.value.trim() + '\n';
+        whatsappMessage += '💬 *WhatsApp:* ' + whatsapp.value.trim() + '\n';
+        whatsappMessage += '🎂 *Age:* ' + age.value + '\n';
+        whatsappMessage += '🎓 *Qualification:* ' + qualification.options[qualification.selectedIndex].text + '\n';
+        whatsappMessage += '🛂 *Passport Available:* ' + (passport.value === 'yes' ? 'Yes' : 'No') + '\n';
+        whatsappMessage += '📍 *State:* ' + state.value.trim() + '\n';
+        if (message && message.value.trim()) {
+          whatsappMessage += '📝 *Message:* ' + message.value.trim() + '\n';
+        }
+        whatsappMessage += '\n--- END ---';
+
+        // Encode and create WhatsApp URL
+        var whatsappURL = 'https://wa.me/919846605743?text=' + encodeURIComponent(whatsappMessage);
+
+        // Short delay for UX then redirect
         setTimeout(function() {
-          submitBtn.innerHTML = '&#10003; Application Submitted Successfully!';
-          submitBtn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+          submitBtn.innerHTML = '&#10003; Redirecting to WhatsApp...';
+          submitBtn.style.background = 'linear-gradient(135deg, #25d366, #128c7e)';
           
           // Show success toast
-          showToast('Application submitted successfully! Our team will contact you soon.', 'success');
+          showToast('Application ready! Redirecting to WhatsApp...', 'success');
           
+          // Open WhatsApp in new tab
+          window.open(whatsappURL, '_blank');
+
           // Reset form after delay
           setTimeout(function() {
             form.reset();
@@ -203,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = false;
             submitBtn.style.background = '';
           }, 3000);
-        }, 1500);
+        }, 1000);
       } else {
         showToast('Please fill in all required fields correctly.', 'error');
       }
