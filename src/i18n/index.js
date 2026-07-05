@@ -4,9 +4,9 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      appName: 'VidyaPath',
-      tagline: 'Learn Smart, Learn Sequential',
-      heroSubtitle: 'India\'s most structured video learning platform for Classes 5-10. Master your syllabus one lesson at a time.',
+      appName: 'XL in Maths',
+      tagline: 'Excel in Mathematics',
+      heroSubtitle: 'India\'s most structured video learning platform for Classes 5-10. Master your maths syllabus one lesson at a time.',
       getStarted: 'Get Started Free',
       login: 'Login',
       signup: 'Sign Up',
@@ -28,12 +28,12 @@ const resources = {
       feature3Desc: 'Parents stay informed with real-time progress tracking.',
       feature4Title: 'Works Offline',
       feature4Desc: 'Install as an app on any device. Learn anytime, anywhere.',
-      testimonial1: '"My son\'s grades improved significantly after using VidyaPath. The sequential approach really works!"',
+      testimonial1: '"My son\'s grades improved significantly after using XL in Maths. The sequential approach really works!"',
       testimonial1Author: 'Priya M., Parent',
       testimonial2: '"I love that I can\'t skip ahead. It actually makes me learn better."',
       testimonial2Author: 'Arjun K., Class 8 Student',
       ctaTitle: 'Ready to Transform Your Learning?',
-      ctaDesc: 'Join thousands of students already learning smarter with VidyaPath.',
+      ctaDesc: 'Join thousands of students already excelling in maths with XL in Maths.',
       whatsappSignup: 'Sign up with WhatsApp',
       phoneSignup: 'Sign up with Phone OTP',
       whatsappLogin: 'Login with WhatsApp',
@@ -87,7 +87,7 @@ const resources = {
   },
   ml: {
     translation: {
-      appName: 'VidyaPath',
+      appName: 'XL in Maths',
       tagline: 'സ്മാര്‍ട്ട് ആയി പഠിക്കൂ',
       heroSubtitle: 'ക്ലാസ് 5-10 വിദ്യാർത്ഥികൾക്കായി ഇന്ത്യയിലെ ഏറ്റവും ഘടനാപരമായ വീഡിയോ പഠന പ്ലാറ്റ്ഫോം.',
       getStarted: 'സൗജന്യമായി ആരംഭിക്കുക',
@@ -124,7 +124,7 @@ const resources = {
   },
   hi: {
     translation: {
-      appName: 'VidyaPath',
+      appName: 'XL in Maths',
       tagline: 'स्मार्ट सीखो, क्रमबद्ध सीखो',
       heroSubtitle: 'कक्षा 5-10 के छात्रों के लिए भारत का सबसे संरचित वीडियो शिक्षण मंच।',
       getStarted: 'मुफ्त शुरू करें',

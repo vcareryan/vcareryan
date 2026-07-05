@@ -1,7 +1,7 @@
 {
-  "name": "VidyaPath - Learn Smart, Learn Sequential",
-  "short_name": "VidyaPath",
-  "description": "India's structured video learning platform for Classes 5-10",
+  "name": "XL in Maths - Excel in Mathematics",
+  "short_name": "XL in Maths",
+  "description": "India's structured maths learning platform for Classes 5-10",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

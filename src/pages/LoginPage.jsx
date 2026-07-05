@@ -65,7 +65,7 @@ export default function LoginPage() {
               <BookOpen className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">{t('login')}</h1>
-            <p className="text-gray-500 mt-1">Welcome back to VidyaPath</p>
+            <p className="text-gray-500 mt-1">Welcome back to XL in Maths</p>
           </div>
 
           <div className="bg-white rounded-2xl shadow-xl p-8">

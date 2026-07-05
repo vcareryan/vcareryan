@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vidyapath-v1';
+const CACHE_NAME = 'xl-in-maths-v1';
 const urlsToCache = [
   '/',
   '/index.html',

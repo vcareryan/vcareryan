@@ -35,7 +35,7 @@ export default function AdminPanel() {
             </div>
             <div>
               <h1 className="font-bold text-gray-900">{t('adminPanel')}</h1>
-              <p className="text-xs text-gray-500">VidyaPath Management</p>
+              <p className="text-xs text-gray-500">XL in Maths Management</p>
             </div>
           </div>
           <button onClick={() => { logout(); navigate('/'); }} className="text-sm text-gray-600 hover:text-red-600 flex items-center gap-1">

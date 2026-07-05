@@ -50,7 +50,7 @@ export default function HomePage() {
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
                 {t('tagline')}
-                <span className="block gradient-text">with VidyaPath</span>
+                <span className="block gradient-text">with XL in Maths</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">
                 {t('heroSubtitle')}
@@ -74,8 +74,8 @@ export default function HomePage() {
                 <div className="bg-white rounded-2xl overflow-hidden">
                   <div className="gradient-bg p-6 text-white text-center">
                     <BookOpen className="w-12 h-12 mx-auto mb-2" />
-                    <h3 className="font-bold text-lg">VidyaPath</h3>
-                    <p className="text-indigo-100 text-sm">Class 8 - Mathematics</p>
+                    <h3 className="font-bold text-lg">XL in Maths</h3>
+                    <p className="text-indigo-100 text-sm">Class 10 - Mathematics</p>
                   </div>
                   <div className="p-4 space-y-3">
                     <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg border border-green-200">
@@ -148,7 +148,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Learning Journey</h2>
-            <p className="text-lg text-gray-600">Here's exactly how VidyaPath guides your learning</p>
+            <p className="text-lg text-gray-600">Here's exactly how XL in Maths guides your learning</p>
           </div>
           <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-8 md:p-12">
             <div className="space-y-6">
@@ -262,14 +262,14 @@ export default function HomePage() {
               <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
                 <BookOpen className="w-4 h-4 text-white" />
               </div>
-              <span className="text-white font-bold text-lg">VidyaPath</span>
+              <span className="text-white font-bold text-lg">XL in Maths</span>
             </div>
             <div className="flex gap-6 text-sm">
               <a href="#" className="hover:text-white transition">Privacy Policy</a>
               <a href="#" className="hover:text-white transition">Terms of Service</a>
               <a href="#" className="hover:text-white transition">Contact Us</a>
             </div>
-            <p className="text-sm"> 2024 VidyaPath. All rights reserved.</p>
+            <p className="text-sm"> 2024 XL in Maths. All rights reserved.</p>
           </div>
         </div>
       </footer>
