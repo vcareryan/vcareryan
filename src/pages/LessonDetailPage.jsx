@@ -104,6 +104,7 @@ export default function LessonDetailPage() {
           <VideoPlayer 
             onComplete={handleVideoComplete}
             title={section.title}
+            videoId={section.videoId}
           />
         </div>
       );
@@ -133,6 +134,7 @@ export default function LessonDetailPage() {
               <VideoPlayer 
                 onComplete={handleVideoComplete}
                 title={`${section.title} — Watch First`}
+                videoId={section.videoId}
               />
               <div className="p-3 bg-purple-50 text-center">
                 <p className="text-sm text-purple-700 font-medium">📹 Watch the video completely, then take the quiz</p>
@@ -148,6 +150,7 @@ export default function LessonDetailPage() {
               <VideoPlayer 
                 onComplete={handleReviewVideoComplete}
                 title={`${section.title} — Review`}
+                videoId={section.videoId}
               />
               <div className="p-3 bg-amber-50 text-center">
                 <p className="text-sm text-amber-600">After watching, you'll retake the quiz</p>

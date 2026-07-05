@@ -39,7 +39,8 @@ export const subjectCategory = {
 export const FREE_LESSON_LIMIT = 3;
 
 // Helper to generate 8 sections for a lesson
-const makeSections = (lessonId, status) => {
+// videoIds: array of YouTube video IDs to assign to video-type sections
+const makeSections = (lessonId, status, videoIds = []) => {
   return SECTION_TITLES.map((title, i) => {
     // Determine content type per section
     let contentType;
@@ -51,6 +52,13 @@ const makeSections = (lessonId, status) => {
     else if (i === 5) contentType = 'text_quiz';   // Previous Question Paper — text + quiz
     else if (i === 6) contentType = 'video';       // Shortcuts — video
     else contentType = 'video';                     // Conclusion — video
+
+    // Assign video IDs to video sections in order
+    // Video sections are: 0 (Introduction), 1 (Important Points), 2 (Exercise), 6 (Shortcuts), 7 (Conclusion)
+    // Also video_quiz sections get a video: 2 (Exercise)
+    const videoSectionIndices = [0, 1, 2, 6, 7];
+    const videoOrderIndex = videoSectionIndices.indexOf(i);
+    const videoId = videoOrderIndex !== -1 ? (videoIds[videoOrderIndex] || null) : null;
 
     // Determine section status
     let sectionStatus;
@@ -70,8 +78,28 @@ const makeSections = (lessonId, status) => {
       type: (i === 3 || i === 4 || i === 5) ? 'quiz' : 'video',
       status: sectionStatus,
       contentType,
+      videoId, // YouTube video ID (null if no video assigned yet)
     };
   });
+};
+
+// YouTube Video IDs from @RejiMaths channel
+// Format: [Introduction, Important Points, Exercise, Shortcuts, Conclusion]
+const LESSON_VIDEOS = {
+  'lesson-1': ['Fht3XDoYc6k', 'Sm06CeXEXVY', 'b7wVu1Qi918', null, null], // Real Numbers (3 videos)
+  'lesson-2': ['rVLc_BpqT1M', null, null, null, null], // Polynomials (1 video so far)
+  'lesson-3': [null, null, null, null, null], // Linear Equations
+  'lesson-4': [null, null, null, null, null], // Quadratic Equations
+  'lesson-5': [null, null, null, null, null], // AP
+  'lesson-6': [null, null, null, null, null], // Triangles
+  'lesson-7': [null, null, null, null, null], // Coordinate Geometry
+  'lesson-8': [null, null, null, null, null], // Trigonometry
+  'lesson-9': [null, null, null, null, null], // Applications of Trig
+  'lesson-10': [null, null, null, null, null], // Circles
+  'lesson-11': [null, null, null, null, null], // Areas Related to Circles
+  'lesson-12': [null, null, null, null, null], // Surface Areas & Volumes
+  'lesson-13': [null, null, null, null, null], // Statistics
+  'lesson-14': [null, null, null, null, null], // Probability
 };
 
 export const lessons = [
@@ -84,7 +112,7 @@ export const lessons = [
     completedSections: 8,
     status: 'completed',
     isFree: true,
-    sections: makeSections('lesson-1', 'completed'),
+    sections: makeSections('lesson-1', 'completed', LESSON_VIDEOS['lesson-1']),
   },
   {
     id: 'lesson-2',
@@ -95,7 +123,7 @@ export const lessons = [
     completedSections: 3,
     status: 'in_progress',
     isFree: true,
-    sections: makeSections('lesson-2', 'in_progress'),
+    sections: makeSections('lesson-2', 'in_progress', LESSON_VIDEOS['lesson-2']),
   },
   {
     id: 'lesson-3',
@@ -106,7 +134,7 @@ export const lessons = [
     completedSections: 0,
     status: 'in_progress',
     isFree: true,
-    sections: makeSections('lesson-3', 'locked').map((s, i) => ({
+    sections: makeSections('lesson-3', 'locked', LESSON_VIDEOS['lesson-3']).map((s, i) => ({
       ...s,
       status: i === 0 ? 'in_progress' : 'locked',
     })),
@@ -120,7 +148,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-4', 'locked'),
+    sections: makeSections('lesson-4', 'locked', LESSON_VIDEOS['lesson-4']),
   },
   {
     id: 'lesson-5',
@@ -131,7 +159,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-5', 'locked'),
+    sections: makeSections('lesson-5', 'locked', LESSON_VIDEOS['lesson-5']),
   },
   {
     id: 'lesson-6',
@@ -142,7 +170,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-6', 'locked'),
+    sections: makeSections('lesson-6', 'locked', LESSON_VIDEOS['lesson-6']),
   },
   {
     id: 'lesson-7',
@@ -153,7 +181,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-7', 'locked'),
+    sections: makeSections('lesson-7', 'locked', LESSON_VIDEOS['lesson-7']),
   },
   {
     id: 'lesson-8',
@@ -164,7 +192,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-8', 'locked'),
+    sections: makeSections('lesson-8', 'locked', LESSON_VIDEOS['lesson-8']),
   },
   {
     id: 'lesson-9',
@@ -175,7 +203,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-9', 'locked'),
+    sections: makeSections('lesson-9', 'locked', LESSON_VIDEOS['lesson-9']),
   },
   {
     id: 'lesson-10',
@@ -186,7 +214,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-10', 'locked'),
+    sections: makeSections('lesson-10', 'locked', LESSON_VIDEOS['lesson-10']),
   },
   {
     id: 'lesson-11',
@@ -197,7 +225,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-11', 'locked'),
+    sections: makeSections('lesson-11', 'locked', LESSON_VIDEOS['lesson-11']),
   },
   {
     id: 'lesson-12',
@@ -208,7 +236,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-12', 'locked'),
+    sections: makeSections('lesson-12', 'locked', LESSON_VIDEOS['lesson-12']),
   },
   {
     id: 'lesson-13',
@@ -219,7 +247,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-13', 'locked'),
+    sections: makeSections('lesson-13', 'locked', LESSON_VIDEOS['lesson-13']),
   },
   {
     id: 'lesson-14',
@@ -230,7 +258,7 @@ export const lessons = [
     completedSections: 0,
     status: 'premium',
     isFree: false,
-    sections: makeSections('lesson-14', 'locked'),
+    sections: makeSections('lesson-14', 'locked', LESSON_VIDEOS['lesson-14']),
   },
 ];
 
